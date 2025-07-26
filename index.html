@@ -645,17 +645,11 @@
             <h4 class="contact-sub-title padd-15">
               I will reply to you shortly
             </h4>
-            <div class="warning">
-              <h4 class="contact-sub-title padd-15">
-                Due to the fact that the site is located on a free hosting there
-                are restrictions on the PHP file, so sending messages through
-                the form is not possible
-              </h4>
-            </div>
+
             <!-- Contact Form -->
             <div class="row">
               <div class="contact-form padd-15">
-                <form action="/form-handler.php" method="post">
+                <form action="https://form.taxi/s/naft6cj2" method="POST">
                   <div class="row">
                     <div class="form-item col-6 padd-15">
                       <div class="form-group">
@@ -664,6 +658,7 @@
                           class="form-control"
                           name="name"
                           placeholder="Name"
+                          required
                         />
                       </div>
                     </div>
@@ -674,6 +669,7 @@
                           class="form-control"
                           name="email"
                           placeholder="Email"
+                          required
                         />
                       </div>
                     </div>
@@ -697,12 +693,22 @@
                           class="form-control"
                           name="message"
                           style="resize: vertical; height: 140px"
-                          id=""
                           placeholder="Message"
+                          required
                         ></textarea>
                       </div>
                     </div>
                   </div>
+                  <!-- Honeypot to prevent spam bots -->
+                  <input type="text" name="_gotcha" style="display: none" />
+
+                  <!-- 🔁 Redirect after successful submit -->
+                  <input
+                    type="hidden"
+                    name="_redirect"
+                    value="http://localhost:8000/thank-you.html"
+                  />
+
                   <div class="row">
                     <div class="form-item col-12 padd-15">
                       <button type="submit" class="btn">Send Message</button>
